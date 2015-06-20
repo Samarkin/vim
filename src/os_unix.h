@@ -292,12 +292,12 @@ typedef struct dsc$descriptor   DESC;
 
 #if !defined(USR_VIMRC_FILE2)
 # ifdef OS2
-#  define USR_VIMRC_FILE2	"$HOME/vimfiles/vimrc"
+#  define USR_VIMRC_FILE2	"$HOME/Dropbox/vimrc"
 # else
 #  ifdef VMS
-#   define USR_VIMRC_FILE2	"sys$login:vimfiles/vimrc"
+#   define USR_VIMRC_FILE2	"sys$login:Dropbox/vimrc"
 #  else
-#    define USR_VIMRC_FILE2	"~/.vim/vimrc"
+#    define USR_VIMRC_FILE2	"~/Dropbox/vimrc"
 #  endif
 # endif
 #endif
@@ -319,12 +319,12 @@ typedef struct dsc$descriptor   DESC;
 
 #ifndef USR_GVIMRC_FILE2
 # ifdef OS2
-#  define USR_GVIMRC_FILE2	"$HOME/vimfiles/gvimrc"
+#  define USR_GVIMRC_FILE2	"$HOME/Dropbox/gvimrc"
 # else
 #  ifdef VMS
-#   define USR_GVIMRC_FILE2	"sys$login:vimfiles/gvimrc"
+#   define USR_GVIMRC_FILE2	"sys$login:Dropbox/gvimrc"
 #  else
-#   define USR_GVIMRC_FILE2	"~/.vim/gvimrc"
+#   define USR_GVIMRC_FILE2	"~/Dropbox/gvimrc"
 #  endif
 # endif
 #endif
@@ -404,7 +404,7 @@ typedef struct dsc$descriptor   DESC;
 #  ifdef VMS
 #   define DFLT_VDIR    "sys$login:vimfiles/view"
 #  else
-#   define DFLT_VDIR    "$HOME/.vim/view"       /* default for 'viewdir' */
+#   define DFLT_VDIR    "$HOME/Dropbox/vimfiles/view"       /* default for 'viewdir' */
 #  endif
 # endif
 #endif
@@ -412,15 +412,15 @@ typedef struct dsc$descriptor   DESC;
 #define DFLT_ERRORFILE		"errors.err"
 
 #ifdef OS2
-# define DFLT_RUNTIMEPATH	"$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after"
+# define DFLT_RUNTIMEPATH	"$HOME/Dropbox/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/Dropbox/vimfiles/after"
 #else
 # ifdef VMS
-#  define DFLT_RUNTIMEPATH      "sys$login:vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,sys$login:vimfiles/after"
+#  define DFLT_RUNTIMEPATH      "sys$login:Dropbox/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,sys$login:Dropbox/vimfiles/after"
 # else
 #  ifdef RUNTIME_GLOBAL
-#   define DFLT_RUNTIMEPATH	"~/.vim," RUNTIME_GLOBAL ",$VIMRUNTIME," RUNTIME_GLOBAL "/after,~/.vim/after"
+#   define DFLT_RUNTIMEPATH	"~/Dropbox/vimfiles," RUNTIME_GLOBAL ",$VIMRUNTIME," RUNTIME_GLOBAL "/after,~/Dropbox/vimfiles/after"
 #  else
-#   define DFLT_RUNTIMEPATH	"~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after"
+#   define DFLT_RUNTIMEPATH	"~/Dropbox/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/Dropbox/vimfiles/after"
 #  endif
 # endif
 #endif

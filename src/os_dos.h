@@ -20,7 +20,7 @@
 # define USR_VIMRC_FILE		"$HOME\\_vimrc"
 #endif
 #ifndef USR_VIMRC_FILE2
-# define USR_VIMRC_FILE2	"$HOME\\vimfiles\\vimrc"
+# define USR_VIMRC_FILE2	"$HOME\\Dropbox\\_vimrc"
 #endif
 #ifndef USR_VIMRC_FILE3
 # define USR_VIMRC_FILE3	"$VIM\\_vimrc"
@@ -44,7 +44,7 @@
 #  define USR_GVIMRC_FILE	"$HOME\\_gvimrc"
 # endif
 # ifndef USR_GVIMRC_FILE2
-#  define USR_GVIMRC_FILE2	"$HOME\\vimfiles\\gvimrc"
+#  define USR_GVIMRC_FILE2	"$HOME\\Dropbox\\gvimrc"
 # endif
 # ifndef USR_GVIMRC_FILE3
 #  define USR_GVIMRC_FILE3	"$VIM\\_gvimrc"
@@ -121,7 +121,7 @@
 #endif
 
 #define DFLT_ERRORFILE		"errors.err"
-#define DFLT_RUNTIMEPATH	"$HOME/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/vimfiles/after"
+#define DFLT_RUNTIMEPATH	"$HOME/Dropbox/vimfiles,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/Dropbox/vimfiles/after"
 
 #define CASE_INSENSITIVE_FILENAME   /* ignore case when comparing file names */
 #define SPACE_IN_FILENAME

@@ -11876,7 +11876,7 @@ save_file_ff(buf)
 /*
  * Return TRUE if 'fileformat' and/or 'fileencoding' has a different value
  * from when editing started (save_file_ff() called).
- * Also when 'endofline' was changed and 'binary' is set, or when 'bomb' was
+ * Also when 'endofline' was changed, or when 'bomb' was
  * changed and 'binary' is not set.
  * When "ignore_empty" is true don't consider a new, empty buffer to be
  * changed.
@@ -11896,7 +11896,7 @@ file_ff_differs(buf, ignore_empty)
 	return FALSE;
     if (buf->b_start_ffc != *buf->b_p_ff)
 	return TRUE;
-    if (buf->b_p_bin && buf->b_start_eol != buf->b_p_eol)
+    if (buf->b_start_eol != buf->b_p_eol)
 	return TRUE;
 #ifdef FEAT_MBYTE
     if (!buf->b_p_bin && buf->b_start_bomb != buf->b_p_bomb)

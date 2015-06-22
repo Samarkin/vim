@@ -603,6 +603,8 @@ $VIMRUNTIME	starting.txt	/*$VIMRUNTIME*
 'noreadonly'	options.txt	/*'noreadonly'*
 'norelativenumber'	options.txt	/*'norelativenumber'*
 'noremap'	options.txt	/*'noremap'*
+'noreol'	options.txt	/*'noreol'*
+'norespecteol'	options.txt	/*'norespecteol'*
 'norestorescreen'	options.txt	/*'norestorescreen'*
 'norevins'	options.txt	/*'norevins'*
 'nori'	options.txt	/*'nori'*
@@ -759,7 +761,9 @@ $VIMRUNTIME	starting.txt	/*$VIMRUNTIME*
 'relativenumber'	options.txt	/*'relativenumber'*
 'remap'	options.txt	/*'remap'*
 'renderoptions'	options.txt	/*'renderoptions'*
+'reol'	options.txt	/*'reol'*
 'report'	options.txt	/*'report'*
+'respecteol'	options.txt	/*'respecteol'*
 'restorescreen'	options.txt	/*'restorescreen'*
 'revins'	options.txt	/*'revins'*
 'ri'	options.txt	/*'ri'*

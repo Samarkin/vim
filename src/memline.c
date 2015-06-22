@@ -5361,8 +5361,8 @@ ml_find_line_or_offset(buf, lnum, offp)
 	if (ffdos)
 	    size += lnum - 1;
 
-	/* Don't count the last line break if 'bin' and 'noeol'. */
-	if (buf->b_p_bin && !buf->b_p_eol)
+	/* Don't count the last line break if 'noeol' and 'bin' or 'reol'. */
+	if ((buf->b_p_reol || buf->b_p_bin) && !buf->b_p_eol)
 	    size -= ffdos + 1;
     }
 

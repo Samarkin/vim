@@ -59,7 +59,8 @@ SCRIPTS = test1.out test3.out test4.out test5.out test6.out \
 		test_set.out \
 		test_signs.out \
 		test_textobjects.out \
-		test_utf8.out
+		test_utf8.out \
+		test_reol.out
 
 .SUFFIXES: .in .out
 
@@ -207,3 +208,4 @@ test_set.out: test_set.in
 test_signs.out: test_signs.in
 test_textobjects.out: test_textobjects.in
 test_utf8.out: test_utf8.in
+test_reol.out: test_reol.in

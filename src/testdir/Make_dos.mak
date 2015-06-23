@@ -58,7 +58,8 @@ SCRIPTS =	test3.out test4.out test5.out test6.out test7.out \
 		test_set.out \
 		test_signs.out \
 		test_textobjects.out \
-		test_utf8.out
+		test_utf8.out \
+		test_reol.out
 
 SCRIPTS32 =	test50.out test70.out
 

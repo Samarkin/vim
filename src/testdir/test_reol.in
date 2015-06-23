@@ -1,0 +1,40 @@
+Tests for 'respecteol'                         vim: set ft=vim :
+ 
+STARTTEST
+:" first write two test files – with and without trailing EOL
+:" use Unix fileformat for consistency
+:set ff=unix
+:enew!
+awith eol:w! XXEol
+:enew!
+:set reol noeol
+awithout eol:w! XXNoEol
+:set noreol eol
+:bwipe XXEol XXNoEol
+:"
+:" try editing files with 'respecteol' enabled
+:e! XXEol
+ostays eol:set reol
+:w! XXTestEol
+:e! XXNoEol
+ostays without:set reol
+:w! XXTestNoEol
+:bwipe XXEol XXNoEol XXTestEol XXTestNoEol
+:set noreol
+:"
+:" Append "END" to each file so that we can see what the last written char was.
+ggdGaEND:w >>XXEol
+:w >>XXNoEol
+:w >>XXTestEol
+:w >>XXTestNoEol
+:"
+:" Concatenate the results
+:e! test.out
+a0:$r XXEol
+:$r XXNoEol
+Go1:$r XXTestEol
+:$r XXTestNoEol
+:w
+:qa!
+ENDTEST
+

@@ -62,7 +62,7 @@ SCRIPTS = test1.out test3.out test4.out test5.out test6.out \
 		test_signs.out \
 		test_textobjects.out \
 		test_utf8.out \
-		test_reol.out
+		test_fixeol.out
 
 SCRIPTS_BENCH = bench_re_freeze.out
 

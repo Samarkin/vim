@@ -2662,16 +2662,16 @@ A jump table for the options with a short description can be found at |Q_op|.
 'endofline' 'eol'	boolean	(default on)
 			local to buffer
 			{not in Vi}
-	When writing a file and this option is off and the 'binary' or
-	'respecteol' option is on, no <EOL> will be written for the last line
-	in the file.  This option is automatically set when starting to edit
-	a new file, unless the file does not have an <EOL> for the last line
-	in the file, in which case it is reset.  Normally you don't have to
-	set or reset this option.  When both 'binary' and 'respecteol' are off
-	the value is not used when writing the file.  When 'binary' or
-	'respecteol' is on it is used to remember the presence of a <EOL> for
-	the last line in the file, so that when you write the file
-	the situation from the original file can be kept.  But you can change
+	When writing a file and this option is off and the 'binary' option
+	is on, or 'fixeol' option is off, no <EOL> will be written for the
+	last line in the file.  This option is automatically set when starting
+	to edit a new file, unless the file does not have an <EOL> for the
+	last line in the file, in which case it is reset.  Normally you don't
+	have to set or reset this option.  When 'binary' is off and 'fixeol'
+	is on the value is not used when writing the file.  When 'binary' is
+	on or 'fixeol' is off it is used to remember the presence of a <EOL>
+	for the last line in the file, so that when you write the file the
+	situation from the original file can be kept.  But you can change
 	it if you want to.
 
 			     *'equalalways'* *'ea'* *'noequalalways'* *'noea'*
@@ -3056,6 +3056,17 @@ A jump table for the options with a short description can be found at |Q_op|.
 	  vert:c	VertSplit		|hl-VertSplit|
 	  fold:c	Folded			|hl-Folded|
 	  diff:c	DiffDelete		|hl-DiffDelete|
+
+		*'fixendofline'* *'fixeol'* *'nofixendofline'* *'nofixeol'*
+'fixendofline' 'fixeol'	boolean	(default on)
+			local to buffer
+			{not in Vi}
+	When writing a file and this option is on, <EOL> at the end of file
+	will be restored if missing. Turn this option off if you want to
+	preserve the situation from the original file.
+	See the 'endofline' option.
+
+	Note: Same can be achived by setting the 'binary' option.
 
 					*'fkmap'* *'fk'* *'nofkmap'* *'nofk'*
 'fkmap' 'fk'		boolean (default off)			*E198*
@@ -5762,17 +5773,6 @@ A jump table for the options with a short description can be found at |Q_op|.
 	":" commands.  If you want it always, set 'report' to 0.
 	For the ":substitute" command the number of substitutions is used
 	instead of the number of lines.
-
-			*'respecteol'* *'reol'* *'norespecteol'* *'noreol'*
-'respecteol' 'reol'	boolean	(default off)
-			local to buffer
-			{not in Vi}
-	When writing a file and this option is on, the <EOL> for the last line
-	is only written if there was one in the original file (normally Vim
-	appends an <EOL> to the last line if there is none).
-	See the 'endofline' option.
-
-	Note: Same can be achived by setting the 'binary' option.
 
 			 *'restorescreen'* *'rs'* *'norestorescreen'* *'nors'*
 'restorescreen' 'rs'	boolean	(default on)

@@ -4174,7 +4174,7 @@ sub_process_writer(LPVOID param)
 	     * one. */
 	    if (lnum != curbuf->b_op_end.lnum
 		|| (!curbuf->b_p_bin
-		    && !curbuf->b_p_reol)
+		    && curbuf->b_p_fixeol)
 		|| (lnum != curbuf->b_no_eol_lnum
 		    && (lnum != curbuf->b_ml.ml_line_count
 			|| curbuf->b_p_eol)))

@@ -1069,9 +1069,10 @@ main_loop(cmdwin, noexmode)
     oparg_T	oa;				/* operator arguments */
     volatile int previous_got_int = FALSE;	/* "got_int" was TRUE */
 #ifdef FEAT_CONCEAL
-    linenr_T	conceal_old_cursor_line = 0;
-    linenr_T	conceal_new_cursor_line = 0;
-    int		conceal_update_lines = FALSE;
+    /* these are static to avoid a compiler warning */
+    static linenr_T	conceal_old_cursor_line = 0;
+    static linenr_T	conceal_new_cursor_line = 0;
+    static int		conceal_update_lines = FALSE;
 #endif
 
 #if defined(FEAT_X11) && defined(FEAT_XCLIPBOARD)
@@ -4008,15 +4009,15 @@ build_drop_cmd(filec, filev, tabs, sendReply)
      *    if haslocaldir()
      *	    cd -
      *      lcd -
-     *    elseif getcwd() ==# "current path"
+     *    elseif getcwd() ==# 'current path'
      *      cd -
      *    endif
      *  endif
      */
     ga_concat(&ga, (char_u *)":if !exists('+acd')||!&acd|if haslocaldir()|");
-    ga_concat(&ga, (char_u *)"cd -|lcd -|elseif getcwd() ==# \"");
+    ga_concat(&ga, (char_u *)"cd -|lcd -|elseif getcwd() ==# '");
     ga_concat(&ga, cdp);
-    ga_concat(&ga, (char_u *)"\"|cd -|endif|endif<CR>");
+    ga_concat(&ga, (char_u *)"'|cd -|endif|endif<CR>");
     vim_free(cdp);
 
     if (sendReply)

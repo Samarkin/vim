@@ -43,4 +43,10 @@ if errorlevel 1 (
    exit /b %errorlevel%
 )
 
+call "%VCDIR%bin\nmake" -f Make_mvc.mak test
+if errorlevel 1 (
+   echo vim test failed with error code %errorlevel%
+   exit /b %errorlevel%
+)
+
 endlocal

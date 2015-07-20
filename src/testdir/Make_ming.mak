@@ -59,6 +59,7 @@ SCRIPTS =	test3.out test4.out test5.out test6.out test7.out \
 		test105.out test106.out test107.out \
 		test_argument_0count.out \
 		test_argument_count.out \
+		test_autocmd_option.out \
 		test_autoformat_join.out \
 		test_breakindent.out \
 		test_changelist.out \
@@ -66,6 +67,7 @@ SCRIPTS =	test3.out test4.out test5.out test6.out test7.out \
 		test_command_count.out \
 		test_erasebackword.out \
 		test_eval.out \
+		test_fixeol.out \
 		test_increment.out \
 		test_insertcount.out \
 		test_listchars.out \
@@ -82,8 +84,7 @@ SCRIPTS =	test3.out test4.out test5.out test6.out test7.out \
 		test_set.out \
 		test_signs.out \
 		test_textobjects.out \
-		test_utf8.out \
-		test_fixeol.out
+		test_utf8.out
 
 SCRIPTS32 =	test50.out test70.out
 

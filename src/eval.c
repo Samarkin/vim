@@ -365,6 +365,9 @@ static struct vimvar
     {VV_NAME("windowid",	 VAR_NUMBER), VV_RO},
     {VV_NAME("progpath",	 VAR_STRING), VV_RO},
     {VV_NAME("completed_item",	 VAR_DICT), VV_RO},
+    {VV_NAME("option_new",	 VAR_STRING), VV_RO},
+    {VV_NAME("option_old",	 VAR_STRING), VV_RO},
+    {VV_NAME("option_type",	 VAR_STRING), VV_RO},
 };
 
 /* shorthand */
@@ -1615,7 +1618,7 @@ call_vim_function(func, argc, argv, safe, str_arg_only, rettv)
 	    len = 0;
 	else
 	    /* Recognize a number argument, the others must be strings. */
-	    vim_str2nr(argv[i], NULL, &len, TRUE, TRUE, &n, NULL);
+	    vim_str2nr(argv[i], NULL, &len, TRUE, TRUE, &n, NULL, 0);
 	if (len != 0 && len == (int)STRLEN(argv[i]))
 	{
 	    argvars[i].v_type = VAR_NUMBER;
@@ -5128,7 +5131,7 @@ eval7(arg, rettv, evaluate, want_string)
 		else
 #endif
 		{
-		    vim_str2nr(*arg, NULL, &len, TRUE, TRUE, &n, NULL);
+		    vim_str2nr(*arg, NULL, &len, TRUE, TRUE, &n, NULL, 0);
 		    *arg += len;
 		    if (evaluate)
 		    {
@@ -18233,7 +18236,7 @@ f_str2nr(argvars, rettv)
     p = skipwhite(get_tv_string(&argvars[0]));
     if (*p == '+')
 	p = skipwhite(p + 1);
-    vim_str2nr(p, NULL, NULL, base == 8 ? 2 : 0, base == 16 ? 2 : 0, &n, NULL);
+    vim_str2nr(p, NULL, NULL, base == 8 ? 2 : 0, base == 16 ? 2 : 0, &n, NULL, 0);
     rettv->vval.v_number = n;
 }
 
@@ -21039,7 +21042,7 @@ get_tv_number_chk(varp, denote)
 	case VAR_STRING:
 	    if (varp->vval.v_string != NULL)
 		vim_str2nr(varp->vval.v_string, NULL, NULL,
-							TRUE, TRUE, &n, NULL);
+						    TRUE, TRUE, &n, NULL, 0);
 	    return n;
 	case VAR_LIST:
 	    EMSG(_("E745: Using a List as a Number"));
@@ -24719,6 +24722,16 @@ ex_oldfiles(eap)
 #endif
     }
 }
+
+/* reset v:option_new, v:option_old and v:option_type */
+    void
+reset_v_option_vars()
+{
+    set_vim_var_string(VV_OPTION_NEW,  NULL, -1);
+    set_vim_var_string(VV_OPTION_OLD,  NULL, -1);
+    set_vim_var_string(VV_OPTION_TYPE, NULL, -1);
+}
+
 
 #endif /* FEAT_EVAL */
 
